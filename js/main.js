@@ -11,8 +11,8 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	puzzleBoard = document.querySelector(".puzzle-board"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll('.drop-zone'),
-	// imageNames = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
-	// puzzlePiece = document.querySelector(".puzzle-pieces"),
+	imageNames = ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
+	puzzlePiece = document.querySelector(".puzzle-pieces"),
 	// store the dragged piece in a global variable
 	// because we need it in the handleDrop function
 	draggedPiece;
@@ -34,17 +34,17 @@ function changeBGImage() {
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 
 	// change puzzlepieces on left side in puzzle games
-	// imageNames.forEach((pieces,index) => {
-	// 	puzzlePieces[index].src = `images/${pieces+this.id}.jpg`
-	// });
+	imageNames.forEach((pieces,index) => {
+		puzzlePieces[index].src = `images/${pieces+this.id}.jpg`
+	});
 
 	// reset all puzzlepieces on leftside when user click the buttonHolder
-	// dropZones.forEach((zones) => {
-	// 	while(zones.firstChild) {
-	// 	puzzlePiece.appendChild((zones.firstChild));
-	// 		}
-	// 	})
-	// 	console.log('Reset all puzzlePieces from puzzle board to left side');
+	dropZones.forEach((zones) => {
+		while(zones.firstChild) {
+		puzzlePiece.appendChild((zones.firstChild));
+			}
+		})
+		console.log('Reset all puzzlePieces from puzzle board to left side');
 	}
 
 function handleStartDrag() { 
@@ -74,12 +74,6 @@ function handleDrop(e) {
 
 	// this line is going to move the dragged piece from the left side of the board
 	// into whatever drop zone we choose. appendChild means "add element to the container"
-
-
-	// imageNames.forEach((pieces,index) => {
-	// 	puzzlePieces[index].src = `images/${pieces+this.id}.jpg`
-	// 	imageNames.forEach(names => names.addEventListener("dropleave", handleDropleave));
-	// });
 
 }
 
